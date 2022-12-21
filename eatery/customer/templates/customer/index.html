@@ -1,10 +1,42 @@
-{% extends 'customer/base.html' %}
+{% extends 'customer/base.html' %} {% load static %} {% block style %}
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="{% static 'customer/index_style.css' %}"
+/>
+<style>
+  #bg {
+    height: 100vh;
+  }
+</style>
+{% endblock style %} {% block content %}
+<!-- Background image -->
+<div id="bg" class="bg-image shadow-2-strong">
+  <div
+    id="bg"
+    class="bg-image shadow-2-strong"
+    style="
+      background-image: url('{% static 'customer/images/pexels-rachel-claire-5531434.jpg' %}');
+    "
+  >
+    <div class="mask" style="background-color: rgba(0, 0, 0, 0.7)">
+      <div class="container mb-5">
+        <div class="row justify-content-center mt-1">
+          <div class="card col-md-5 col-sm-12 offset-md-1 p-4 text-center">
+            <h1>Eatery: Eat-in or Take-out</h1>
+            <h2>Take a look at the menu.</h2>
+            <button class="btn btn-outline-primary">Go To Menu</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Background image -->
 
-{% block content %}
-<div class="container mb-5">
+  <!-- <div class="container mb-5">
     <div class="row justify-content-center mt-5">
         <div class="col-md-8 col-sm-12 offset-md-1 p-4 text-center">
-            <h1>Eatery: Eat-in or Take-out</h1>
+            <h1 class="test">Eatery: Eat-in or Take-out</h1>
         </div>
     </div>
     <div class="row justify-content-center mt-1">
@@ -14,5 +46,6 @@
             <button class="btn btn-outline-primary">Go To Menu</button>
         </div>
     </div>
+</div> -->
+  {% endblock content %}
 </div>
-{% endblock content %}

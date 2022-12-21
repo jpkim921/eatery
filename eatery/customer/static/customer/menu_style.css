@@ -1,0 +1,17 @@
+.test {
+    color: red;
+}
+
+#bg {
+    height: 100vh;
+}
+
+#main-header {
+    color:white;
+
+}
+
+.menu-button {
+    background-color: white;
+    border-radius: 7px;
+}
