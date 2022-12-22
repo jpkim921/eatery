@@ -1,0 +1,53 @@
+{% extends 'customer/base.html' %} {% load static %} {% block style %}
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="{% static 'customer/menu_style.css' %}"
+/>
+{% endblock style %} {% block content %}
+<!-- Background image -->
+<div id="bg" class="bg-image shadow-2-strong">
+  <div
+    id="bg"
+    class="bg-image shadow-2-strong"
+    style="
+      background-image: url('{% static 'customer/images/pexels-markus-winkler-12481161_1920-1440.jpg' %}');
+    "
+  >
+    <div class="mask" style="background-color: rgba(0, 0, 0, 0.7)">
+      <div
+        class="d-flex flex-column mb-3 align-items-center justify-content-center h-75"
+      >
+        <div>
+            <h1 class="main-header display-1">Menu</h1>
+        </div>
+        <div
+          class="w-50 d-flex flex-row mb-5 align-items-center justify-content-evenly"
+        >
+          <a
+            class="menu-button btn btn-outline-light btn-lg btn-link"
+            data-mdb-ripple-color="dark"
+            href="{% url 'breakfast_menu' %}"
+            >Breakfast</a
+          >
+          <a
+            class="menu-button btn btn-outline-light btn-lg btn-link"
+            data-mdb-ripple-color="dark"
+            href="{% url 'lunch_menu' %}"
+            >Lunch</a
+          >
+          <a
+            class="menu-button btn btn-outline-light btn-lg btn-link"
+            data-mdb-ripple-color="dark"
+            href="{% url 'dinner_menu' %}"
+            >Dinner</a
+          >
+        </div>
+        {% comment %}
+        <div class="p-2">Flex item 3</div>
+        {% endcomment %}
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock content %}
