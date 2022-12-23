@@ -14,5 +14,6 @@
 
 
 ## Todo:
+ - [] Need to create db to help populate the menu
  - [] Add drop down to menu navbar link - to show Breakfast, Lunch, Dinner
  - [] Build out breakfast, lunch, and dinner menus
