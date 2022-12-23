@@ -19,9 +19,11 @@
         class="d-flex flex-column mb-3 align-items-center justify-content-center h-15"
       >
         <div>
-            <h1 class="main-header display-1">Breakfast Menu</h1>
+          <h1 class="main-header display-1">Breakfast Menu</h1>
         </div>
-        
+        {% comment %} {% include "default_table.html" with
+        table_header=table_header1 table_data=table_data1 %} {% endcomment %} 
+        {% include 'customer/menu_grid.html' with menu_items=menu_items %}
       </div>
     </div>
   </div>
