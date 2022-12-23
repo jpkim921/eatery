@@ -14,13 +14,14 @@
       background-image: url('{% static 'customer/images/pexels-rachel-claire-5531434_1920-1440.jpg' %}');
     "
   >
-    <div class="mask" style="background-color: rgba(0, 0, 0, 0.7)">
+    <div class="mask" style="background-color: rgba(0, 0, 0, 0.6)">
       <div class="container mb-5">
-        <div class="row justify-content-center mt-1">
+        <div class="row justify-content-center mt-1 pt-5">
           <div class="card col-md-5 col-sm-12 offset-md-1 p-4 text-center">
             <h1>Eatery: Eat-in or Take-out</h1>
             <h2>Take a look at the menu.</h2>
-            <button class="btn btn-outline-primary">Go To Menu</button>
+            <button class="btn btn-outline-primary btn-lg">Go To Menu</button>
+            <a class="btn btn-outline-primary btn-lg mt-4" href="{% url 'order' %}">Order Now</a>
           </div>
         </div>
       </div>
