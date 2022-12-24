@@ -19,7 +19,13 @@
         class="d-flex flex-column mb-3 align-items-center justify-content-center h-75"
       >
         <div>
-            <h1 class="main-header display-1">Menu</h1>
+            <h1 class="main-header display-1">
+              {% if meal %}
+                {{meal}}
+              {% else %}
+                Menu
+              {% endif %}
+            </h1>
         </div>
         <div
           class="w-50 d-flex flex-row mb-5 align-items-center justify-content-evenly"
@@ -43,9 +49,9 @@
             </button>
           </form>
         </div>
-        {% comment %}
-        <div class="p-2">Flex item 3</div>
-        {% endcomment %}
+
+        {% include 'customer/menu_grid.html' with menu_items=menu_items %}
+
       </div>
     </div>
   </div>

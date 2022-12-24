@@ -24,21 +24,15 @@ class HomeMenu(View):
         context = {}
         # print('meal_type', request.POST['meal_type'])
         meal_type = request.POST['meal_type']
-        context['meal'] = meal_type
+        context['meal'] = meal_type.upper()
+
         # search db based on request.POST['meal_type']
 
+        menu_items = MenuItem.objects.all()
+        context['menu_items'] = menu_items
         print(context)
+
         return render(request, 'customer/home_menu.html', context=context)
-
-
-
-        # form = self.form_class(request.POST)
-        # if form.is_valid():
-        #     # <process form cleaned data>
-        #     return HttpResponseRedirect('/success/')
-
-        # return render(request, self.template_name, {'form': form})
-
 
 class BreakfastMenu(View):
     def get(self, request, *args, **kwargs):

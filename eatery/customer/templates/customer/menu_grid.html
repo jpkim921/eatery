@@ -1,6 +1,14 @@
-<h1 class='display-1'>MENU GRID</h1>
-<h1 class='display-1'>MENU GRID</h1>
-{% for item in menu_items %}
-    <p>{{item.name}}</p>
-{% endfor %}
+
+<div class="d-flex flex-row justify-content-between row mb-3 w-75">
+    {% for item in menu_items %}
+        <div class="card col-sm-4">
+            <img src="{{ item.image }}" class="card-img-top" alt="food image"/>
+            <div class="card-body">
+              <h5 class="card-title">{{ item.name }}</h5>
+              <p class="card-text">{{ item.description }}</p>
+              <a href="#!" class="btn btn-primary">Button</a>
+            </div>
+          </div>
+    {% endfor %}
+  </div>
 
