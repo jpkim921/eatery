@@ -52,7 +52,8 @@
         </div>
         {% if meal %}
         <div class="container">
-          {% include 'customer/menu_grid.html' with meal=meal menu_items=menu_items %}
+          {% include 'customer/menu_grid.html' %}
+          {% comment %} {% include 'customer/menu_grid.html' with meal=meal menu_items=menu_items %} {% endcomment %}
         </div>
         {% endif %}
         </div>

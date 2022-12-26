@@ -29,8 +29,13 @@ class HomeMenu(View):
         # search db based on request.POST['meal_type']
 
         menu_items = MenuItem.objects.all()
+
         context['menu_items'] = menu_items
-        print(context)
+        context['appetizer'] = MenuItem.objects.filter(category__name="Appetizer")
+        context['entree'] = MenuItem.objects.filter(category__name="Entree")
+        context['dessert'] = MenuItem.objects.filter(category__name="Dessert")
+        context['drink'] = MenuItem.objects.filter(category__name="Drink")
+        print('post context', context)
 
         return render(request, 'customer/home_menu.html', context=context)
 
