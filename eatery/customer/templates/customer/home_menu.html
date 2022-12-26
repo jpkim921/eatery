@@ -5,55 +5,56 @@
   href="{% static 'customer/menu_style.css' %}"
 />
 {% endblock style %} {% block content %}
-<!-- Background image -->
-<div id="bg" class="bg-image shadow-2-strong">
-  <div
-    id="bg"
-    class="bg-image shadow-2-strong"
-    style="
-      background-image: url('{% static 'customer/images/pexels-markus-winkler-12481161_1920-1440.jpg' %}');
-    "
-  >
-    <div class="mask" style="background-color: rgba(0, 0, 0, 0.7)">
-      <div
-        class="d-flex flex-column mb-3 align-items-center justify-content-center h-75"
-      >
+<div
+        class="d-flex flex-column mb-3 align-items-center justify-content-center"
+        >
         <div>
-            <h1 class="main-header display-1">
-              {% if meal %}
-                {{meal}}
-              {% else %}
-                Menu
-              {% endif %}
-            </h1>
+          <h1 class="main-header display-1">
+            {% if meal %} {{meal}} {% else %} Menu {% endif %}
+          </h1>
         </div>
         <div
           class="w-50 d-flex flex-row mb-5 align-items-center justify-content-evenly"
         >
           <form method="POST" action=".">
             {% csrf_token %}
-            <button type="submit" name="meal_type" value="breakfast" class="menu-button btn btn-outline-light btn-lg btn-link">
+            <button
+              type="submit"
+              name="meal_type"
+              value="breakfast"
+              class="menu-button btn btn-outline-light btn-lg btn-link"
+            >
               Breakfast
             </button>
           </form>
           <form method="POST" action=".">
             {% csrf_token %}
-            <button type="submit" name="meal_type" value="lunch" class="menu-button btn btn-outline-light btn-lg btn-link">
+            <button
+              type="submit"
+              name="meal_type"
+              value="lunch"
+              class="menu-button btn btn-outline-light btn-lg btn-link"
+            >
               Lunch
             </button>
           </form>
           <form method="POST" action=".">
             {% csrf_token %}
-            <button type="submit" name="meal_type" value="dinner" class="menu-button btn btn-outline-light btn-lg btn-link">
+            <button
+              type="submit"
+              name="meal_type"
+              value="dinner"
+              class="menu-button btn btn-outline-light btn-lg btn-link"
+            >
               Dinner
             </button>
           </form>
         </div>
-
-        {% include 'customer/menu_grid.html' with menu_items=menu_items %}
-
+        {% if meal %}
+        <div class="container">
+          {% include 'customer/menu_grid.html' with meal=meal menu_items=menu_items %}
+        </div>
+        {% endif %}
+        </div>
       </div>
-    </div>
-  </div>
-</div>
 {% endblock content %}

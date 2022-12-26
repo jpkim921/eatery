@@ -1,14 +1,112 @@
+<div class="main_content">
+  <div class="row border">
+    <div class="col-md-8 border">
+      <div class="mb-3 border">
+        <div class="row border">
+          <div class="category-title border">
+            <h7 class="category-title">CATEGORY TITLE</h7>
+          </div>
+        </div>
+        <div class="row border">
+          <div class="food-items border">
+            <div class="container">
+              <div
+                class="h-100 d-flex flex-row justify-content-between align-items-center flex-wrap"
+              >
+                {% for item in menu_items %}
+                <div class="col-md-5 menu-item card text-center mb-3">
+                  <img
+                    src="{{ item.image.url }}"
+                    class="card-img-top"
+                    alt="food image"
+                  />
 
-<div class="d-flex flex-row justify-content-between row mb-3 w-75">
-    {% for item in menu_items %}
-        <div class="card col-sm-4">
-            <img src="{{ item.image }}" class="card-img-top" alt="food image"/>
-            <div class="card-body">
-              <h5 class="card-title">{{ item.name }}</h5>
-              <p class="card-text">{{ item.description }}</p>
-              <a href="#!" class="btn btn-primary">Button</a>
+                  <div class="card-body">
+                    <h5 class="card-title">{{item.name}}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">
+                      {{item.price}}
+                    </h6>
+                    <p class="card-text">
+                      {{item.description}} Some quick example text to build on
+                      the card title and make up the bulk of the card's content.
+                    </p>
+                  </div>
+                </div>
+                {% endfor %} {% comment %} TEST {% endcomment %}
+                <div class="col-md-5 menu-item card text-center">
+                  <div class="card-body">
+                    <h5 class="card-title">Card title2</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                    <p class="card-text">
+                      Some quick example text to build on the card title and
+                      make up the bulk of the card's content.
+                    </p>
+                  </div>
+                </div>
+                <div class="col-md-5 menu-item card text-center">
+                  <div class="card-body">
+                    <h5 class="card-title">Card title2</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                    <p class="card-text">
+                      Some quick example text to build on the card title and
+                      make up the bulk of the card's content.
+                    </p>
+                  </div>
+                </div>
+                <div class="col-md-5 menu-item card text-center">
+                  <div class="card-body">
+                    <h5 class="card-title">Card title2</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                    <p class="card-text">
+                      Some quick example text to build on the card title and
+                      make up the bulk of the card's content.
+                    </p>
+                  </div>
+                </div>
+                <div class="col-md-5 menu-item card text-center">
+                  <div class="card-body">
+                    <h5 class="card-title">Card title2</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                    <p class="card-text">
+                      Some quick example text to build on the card title and
+                      make up the bulk of the card's content.
+                    </p>
+                  </div>
+                </div>
+                <div class="col-md-5 menu-item card text-center">
+                  <div class="card-body">
+                    <h5 class="card-title">Card title2</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                    <p class="card-text">
+                      Some quick example text to build on the card title and
+                      make up the bulk of the card's content.
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-    {% endfor %}
+        </div>
+      </div>
+      <div class="cat-section mb-3 border">
+        <div class="row border">
+          <div class="category-title border">
+            <h7>CATEGORY TITLE</h7>
+          </div>
+        </div>
+        <div class="row border">
+          <div class="food-items border">
+            <div class="container">
+              <div class="row">
+                <div class="col-md">One of three columns</div>
+                <div class="col-md">One of three columns</div>
+                <div class="col-md">One of three columns</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">Right</div>
   </div>
-
+</div>
