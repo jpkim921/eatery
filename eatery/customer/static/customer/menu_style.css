@@ -1,3 +1,18 @@
+
+/* <div
+    id="bg"
+    class="bg-image shadow-2-strong"
+    style="
+        background-image: url('{% static 'customer/images/pexels-markus-winkler-12481161.jpg' %}');
+
+    "
+  > */
+#background-image {
+    /* background-image: url('static/media/bg-images/pexels-markus-winkler-12481161_1920-1440.jpg'); */
+    background-attachment: fixed;
+    height: 100vh;
+}
+
 .test {
     color: red;
 }
@@ -7,7 +22,7 @@
 }
 
 #main-header {
-    color:white;
+    background-color:red;
 
 }
 

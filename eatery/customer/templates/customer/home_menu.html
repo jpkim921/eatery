@@ -4,46 +4,53 @@
   type="text/css"
   href="{% static 'customer/menu_style.css' %}"
 />
-{% endblock style %} 
-{% block content %}
+{% endblock style %} {% block content %}
+<div id="background-image" class="bg-image" style="background-image: url('{% static 'customer/images/pexels-markus-winkler-12481161.jpg' %}');">
+  <div class="mask overflow-auto" style="background-color: rgba(0, 0, 0, 0.6)">
 
-<div class="d-flex flex-column mb-3 align-items-center justify-content-center">
-  <div>
-    <h1 class="main-header display-1">
-      {% if meal %} {{meal}} {% else %} Menu {% endif %}
-    </h1>
-  </div>
-  <div
-    class="w-50 d-flex flex-row mb-5 align-items-center justify-content-evenly"
-  >
-    <form method="POST" action=".">
-      {% csrf_token %}
-      <button
-        type="submit"
-        name="meal_type"
-        value="lunch"
-        class="menu-button btn btn-outline-light btn-lg btn-link"
+    <div
+      class="d-flex flex-column mb-3 align-items-center justify-content-center"
+      style="height: auto;"
+    >
+      <div>
+        <h1 class="main-header display-1">
+          {% if meal %} {{meal}} {% else %} Menu {% endif %}
+        </h1>
+      </div>
+      <div
+        class="w-50 d-flex flex-row mb-5 align-items-center justify-content-evenly"
       >
-        Lunch
-      </button>
-    </form>
-    <form method="POST" action=".">
-      {% csrf_token %}
-      <button
-        type="submit"
-        name="meal_type"
-        value="dinner"
-        class="menu-button btn btn-outline-light btn-lg btn-link"
-      >
-        Dinner
-      </button>
-    </form>
+        <form method="POST" action=".">
+          {% csrf_token %}
+          <button
+            type="submit"
+            name="meal_type"
+            value="lunch"
+            class="menu-button btn btn-outline-light btn-lg btn-link"
+          >
+            Lunch
+          </button>
+        </form>
+        <form method="POST" action=".">
+          {% csrf_token %}
+          <button
+            type="submit"
+            name="meal_type"
+            value="dinner"
+            class="menu-button btn btn-outline-light btn-lg btn-link"
+          >
+            Dinner
+          </button>
+        </form>
+      </div>
+      {% if meal %}
+      <div class="container">
+        {% include 'customer/menu_grid.html' %} 
+        {% comment %} 
+        {% include 'customer/menu_grid.html' with meal=meal menu_items=menu_items %} {% endcomment %}
+      </div>
+      {% endif %}
+    </div>
   </div>
-  {% if meal %}
-  <div class="container">
-    {% include 'customer/menu_grid.html' %} 
-    {% comment %} {% include 'customer/menu_grid.html' with meal=meal menu_items=menu_items %} {% endcomment %}
-  </div>
-  {% endif %}
 </div>
 {% endblock content %}
