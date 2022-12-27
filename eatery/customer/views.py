@@ -23,19 +23,20 @@ class HomeMenu(View):
         # meal = MealType()
         context = {}
         # print('meal_type', request.POST['meal_type'])
-        meal_type = request.POST['meal_type']
+        meal_type: str = request.POST['meal_type']
         context['meal'] = meal_type.upper()
 
         # search db based on request.POST['meal_type']
 
-        menu_items = MenuItem.objects.all()
+        menu_items = MenuItem.objects.filter(meal_time__name=meal_type)
+        print("menu_items", menu_items)
 
-        context['menu_items'] = menu_items
-        context['appetizer'] = MenuItem.objects.filter(category__name="Appetizer")
-        context['entree'] = MenuItem.objects.filter(category__name="Entree")
-        context['dessert'] = MenuItem.objects.filter(category__name="Dessert")
-        context['drink'] = MenuItem.objects.filter(category__name="Drink")
-        print('post context', context)
+        # context['menu_items'] = menu_items
+        context['appetizer'] = menu_items.filter(category__name="Appetizer")
+        context['entree'] = menu_items.filter(category__name="Entree")
+        context['dessert'] = menu_items.filter(category__name="Dessert")
+        context['drink'] = menu_items.filter(category__name="Drink")
+        # print('post context', context)
 
         return render(request, 'customer/home_menu.html', context=context)
 
