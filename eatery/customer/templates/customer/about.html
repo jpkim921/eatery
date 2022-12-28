@@ -1,7 +1,24 @@
-{% extends 'customer/base.html' %}
+{% extends 'customer/base.html' %} {% load static %}
+{% block style %}
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="{% static 'customer/about_style.css' %}"
+/>
+{% endblock style %}
 
 {% block content %}
-<div class="container mb-5">
+<div class="container">
+
+    <div id="background-image"
+        class="bg-image"
+        style="background-image: url('{% static 'customer/images/pexels-anna-tarazevich-6937476.jpg' %}');">
+
+
+    </div>
+
+
+
     <div class="row justify-content-center mt-5">
         <div class="col-md-8 col-sm-12 offset-md-1 p-4 text-center">
             <h1>About Us</h1>
