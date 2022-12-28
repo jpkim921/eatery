@@ -14,15 +14,41 @@
       background-image: url('{% static 'customer/images/pexels-rachel-claire-5531434_1920-1440.jpg' %}');
     "
   >
-    <div class="mask" style="background-color: rgba(0, 0, 0, 0.6)">
+    <div class="mask" style="background-color: rgba(0, 0, 0, 0.8)">
       <div class="container mb-5">
         <div class="row justify-content-center mt-1 pt-5">
+          <div class="mb-8">
+            <h1 class="display-1 text-white text-center">Eatery</h1>
+          </div>
+          {% comment %} <h3 class="display-4 text-white">Eat-in / Take-out</h3>
+          <a
+            class="btn btn-outline-light btn-md mt-3 w-75 mx-auto"
+            href="{% url 'home_menu' %}"
+            >See Menu</a
+          >
+          <a
+            class="btn btn-outline-light btn-md mt-4 w-75 mx-auto"
+            href="{% url 'order' %}"
+            >Order Now</a
+          > 
+          {% comment %}
           <h1 class="display-1">Eatery</h1>
-          <div class="card col-md-5 p-4 text-center">
-            <h1>Eat-in / Take-out</h1>
-            {% comment %} <h2>Take a look at the menu.</h2> {% endcomment %}
-            <a class="btn btn-outline-primary btn-lg mt-3" href="{% url 'home_menu' %}">See Menu</a>
-            <a class="btn btn-outline-primary btn-lg mt-4" href="{% url 'order' %}">Order Now</a>
+          {% endcomment %}
+          <div class="d-flex card col-md-6 p-4 align-items-center text-center bg-transparent">
+            <h1 class="display-4 text-white">Eat-in / Take-out</h1>
+            {% comment %}
+            <h2>Take a look at the menu.</h2>
+            {% endcomment %}
+            <a
+              class="btn btn-outline-white col-md-4 btn-md mt-3 w-50 mx-auto"
+              href="{% url 'home_menu' %}"
+              >See Menu</a
+            >
+            <a
+              class="btn btn-outline-white col-md-4 btn-md mt-4 w-50 mx-auto"
+              href="{% url 'order' %}"
+              >Order Now</a
+            >
           </div>
         </div>
       </div>
