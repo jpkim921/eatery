@@ -37,10 +37,12 @@
  - Photo by ROMAN ODINTSOV: https://www.pexels.com/photo/close-up-shot-of-a-glass-of-orange-juice-7494029/
  - Photo by Timur Weber: https://www.pexels.com/photo/clear-drinking-glasses-with-yellow-liquid-8679370/
  - Photo by Pixabay: https://www.pexels.com/photo/food-on-white-ceramic-spoon-39826/
-
+ - Photo by Marion Pintaux: https://www.pexels.com/photo/man-holding-cooking-utensil-2670327/
+ - Photo by Anna Tarazevich: https://www.pexels.com/photo/person-holding-chopsticks-and-green-plate-with-food-6937476/
 
 
 ## Todo:
- - [] Need to create db to help populate the menu
- - [] Add drop down to menu navbar link - to show Breakfast, Lunch, Dinner
- - [] Build out breakfast, lunch, and dinner menus
+ - [x] Need to create db to help populate the menu
+ - [ ] Add drop down to menu navbar link - to show Breakfast, Lunch, Dinner
+ - [x] Build out lunch, and dinner menus
+ - [ ] build out about us apge
