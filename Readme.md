@@ -46,3 +46,5 @@
  - [ ] Add drop down to menu navbar link - to show Breakfast, Lunch, Dinner
  - [x] Build out lunch, and dinner menus
  - [x] build out about us apge
+ - [x] order page saves order to db
+ - [ ] add timer to only load lunch or dinner items on the order page

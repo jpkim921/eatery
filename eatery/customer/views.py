@@ -81,7 +81,6 @@ class Order(View):
             'desserts': desserts,
             'drinks': drinks,
         }
-        print('context', context)
         return render(request, 'customer/order.html', context=context)
 
     def post(self, request, *args, **kwargs):
@@ -92,10 +91,11 @@ class Order(View):
         item_ids = []
 
         items = request.POST.getlist('items[]')
+        print("items", items)
 
         # iterate through items and get the menu item and price from db
         for item in items:
-            menu_item = MenuItem.objects.get(pk__contains=int(item)) 
+            menu_item = MenuItem.objects.get(pk=int(item)) 
             item_data = {
                 'id': menu_item.pk,
                 'name': menu_item.name,
@@ -104,6 +104,7 @@ class Order(View):
             order_items['items'].append(item_data)
             price += menu_item.price
             item_ids.append(menu_item.pk)
+            # print(order_items['items'])
         
 
         # create the order
@@ -114,5 +115,6 @@ class Order(View):
             'price': price
         }
         return render(request, 'customer/order_confirmation.html', context=context)
+        # return render(request, 'customer/order_confirmation.html', context={})
         
 
