@@ -7,17 +7,17 @@
 {% endblock style %} {% block content %} {% comment %}
 <div class="container">
   {% endcomment %}
-  <div
-    id="background-image"
-    class="bg-image text-center"
-    style="
-      background-image: url('{% static 'customer/images/about-banner.png' %}');
-    "
-  >
-    <h1 class="display-3 mt-5 text-white">About Us</h1>
-  </div>
-
   <div class="container">
+    <div
+      id="background-image"
+      class="bg-image text-center"
+      style="
+        background-image: url('{% static 'customer/images/about-banner.png' %}');
+      "
+    >
+      <h1 class="display-3 mt-5 text-white">About Us</h1>
+    </div>
+
     <div class="row gx-4">
       {% comment %} map section {% endcomment %}
       <div id="map" class="col-md-6">
@@ -55,12 +55,11 @@
           class="text-center d-flex flex-column justify-content-start align-items-center"
         >
           <div class="card col w-100">
-            <div class="card-body">
-              <h5 class="card-title h5">Store Info</h5>
-              <p class="card-text">
-                718.205.5559 or 718.205.5637 aruneethairestaurant@gmail.com
-              </p>
-            </div>
+            <ul class="list-group list-group-light">
+              <li class="list-group-item px-3">Store Info</li>
+              <li class="list-group-item px-3">123.456.7890</li>
+              <li class="list-group-item px-3">eatery@test.com</li>
+            </ul>
           </div>
 
           <div class="card col w-100">
