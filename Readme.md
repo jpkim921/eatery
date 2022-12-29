@@ -45,4 +45,4 @@
  - [x] Need to create db to help populate the menu
  - [ ] Add drop down to menu navbar link - to show Breakfast, Lunch, Dinner
  - [x] Build out lunch, and dinner menus
- - [ ] build out about us apge
+ - [x] build out about us apge
