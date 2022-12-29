@@ -5,7 +5,7 @@
   href="{% static 'customer/about_style.css' %}"
 />
 {% endblock style %} {% block content %}
-<div class="container">
+{% comment %} <div class="container"> {% endcomment %}
   <div
     id="background-image"
     class="bg-image text-center"
@@ -17,136 +17,85 @@
   </div>
 
   <div class="container">
-    <div class="row gx-4 ">
-  
+    <div class="row gx-4">
+      {% comment %} map section {% endcomment %}
       <div id="map" class="col-md-6">
         <div class="container">
-            <section class="mx-auto my-5" style="max-width: 23rem;">
-                
-              <div class="card map-card">
-                <div id="map-container-google-1" class="z-depth-1-half map-container" style="height: 500px">
-                  <iframe src="https://maps.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3978.0937870609287!2d113.98407891461!3d4.393546845467979!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x321f4967c60030ff%3A0x7d7ec3f94b9e9ec6!2sWelcome%20Restaurant%20(Ying%20Xuan)!5e0!3m2!1sen!2sus!4v1672248110088!5m2!1sen!2sus" frameborder="0"
-                    style="border:0" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                {% comment %} <iframe src="https://maps.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3978.0937870609287!2d113.98407891461!3d4.393546845467979!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x321f4967c60030ff%3A0x7d7ec3f94b9e9ec6!2sWelcome%20Restaurant%20(Ying%20Xuan)!5e0!3m2!1sen!2sus!4v1672248110088!5m2!1sen!2sus" width="400" height="650" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> {% endcomment %}
-                </div>
-                <div class="card-body closed px-0">
-                  <div class="button px-2 mt-3">
-                    <a class="btn btn-floating btn-lg living-coral text-white float-end" style="margin-right: .75rem;"><i
-                        class="fas fa-bicycle"></i></a>
-                  </div>
-                  <div class="bg-white px-4 pb-4 pt-3-5">
-                    <h5 class="card-title h5 living-coral-text">Central Park Zoo</h5>
-                    <div class="d-flex justify-content-between living-coral-text">
-                      <h6 class="card-subtitle font-weight-light">A place to relax</h6>
-                      <h6 class="font-small font-weight-light mt-n1">25 min</h6>
-                    </div>
-                    <hr>
-                    <div class="d-flex justify-content-between pt-2 mt-1 text-center text-uppercase living-coral-text">
-                      <div>
-                        <i class="fas fa-phone fa-lg mb-3"></i>
-                        <p class="mb-0">Call</p>
-                      </div>
-                      <div>
-                        <i class="fas fa-cat fa-lg mb-3"></i>
-                        <p class="mb-0">Love</p>
-                      </div>
-                      <div>
-                        <i class="far fa-grin-beam-sweat fa-lg mb-3"></i>
-                        <p class="mb-0">Smile</p>
-                      </div>
-                    </div>
-                    <hr>
-                    <table class="table table-borderless">
-                      <tbody>
-                        <tr>
-                          <th scope="row" class="px-0 pb-3 pt-2">
-                            <i class="fas fa-map-marker-alt living-coral-text"></i>
-                          </th>
-                          <td class="pb-3 pt-2">East 64th Street, New York, NY 10021, US</td>
-                        </tr>
-                        <tr class="mt-2">
-                          <th scope="row" class="px-0 pb-3 pt-2">
-                            <i class="far fa-clock living-coral-text"></i>
-                          </th>
-                          <td class="pb-3 pt-2"><span class="deep-purple-text me-2"> Closed</span> Opens 10 AM</td>
-                        </tr>
-                        <tr class="mt-2">
-                          <th scope="row" class="px-0 pb-3 pt-2">
-                            <i class="fas fa-cloud-moon living-coral-text"></i>
-                          </th>
-                          <td class="pb-3 pt-2">Sunny weather tomorrow</td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
+          <section class="mx-auto my-5" style="max-width: 23rem">
+            <div class="card map-card">
+              <div
+                id="map-container-google-1"
+                class="map-container"
+                style="height: 500px"
+              >
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7956.1914771981965!2d113.985666!3d4.393181!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x7d7ec3f94b9e9ec6!2sWelcome%20Restaurant%20(Ying%20Xuan)!5e0!3m2!1sen!2sus!4v1672248532482!5m2!1sen!2sus"
+                  width="600"
+                  height="450"
+                  style="border: 0"
+                  allowfullscreen=""
+                  loading="lazy"
+                  referrerpolicy="no-referrer-when-downgrade"
+                ></iframe>
               </div>
-              
-            </section>
-          </div>
-  
-      </div>
-  
-      <div class="col-md-6">
-  
-      </div>
-  
-    </div>
-  </div>
-
-
-  <div class="d-flex row">
-    <div class="h-100 d-flex justify-content-between align-items-center gap-3 flex-wrap mt-5">
-      <div class="card col-lg-5">
-        <div class="card-body">
-          <h5 class="card-title">Store Info</h5>
-          <p class="card-text">
-            
-            718.205.5559 or 718.205.5637
-            aruneethairestaurant@gmail.com
-            
-          </p>
+              <div class="card-body closed px-0"></div>
+            </div>
+          </section>
         </div>
       </div>
-      <div class="card col-lg-5">
-        <!-- Default form subscription -->
-        <form class="text-center border border-light p-5" action="#!">
-          <h3>
-            Join our mailing list.
-          </h3>
-          <p>
-            <a href="{% url 'home_menu' %}" target="_blank">See the latest menu</a>
-          </p>
+      {% comment %} end map section {% endcomment %}
 
-          <!-- Name -->
-          <input
-            type="text"
-            id="defaultSubscriptionFormPassword"
-            class="form-control mb-4"
-            placeholder="Name"
-          />
+      <div
+        class="col-md-6"
+      >
+        <div
+          class="d-flex flex-column justify-content-start align-items-center"
+        >
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Store Info</h5>
+                    <p class="card-text">
+                        718.205.5559 or 718.205.5637 aruneethairestaurant@gmail.com
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+          <!-- Default form subscription -->
+          <form class="text-center border border-light p-5" action="#!">
+            <h3>Join our mailing list.</h3>
+            <p>
+              <a href="{% url 'home_menu' %}" target="_blank"
+                >See the latest menu</a
+              >
+            </p>
 
-          <!-- Email -->
-          <input
-            type="email"
-            id="defaultSubscriptionFormEmail"
-            class="form-control mb-4"
-            placeholder="E-mail"
-          />
+            <!-- Name -->
+            <input
+              type="text"
+              id="defaultSubscriptionFormPassword"
+              class="form-control mb-4"
+              placeholder="Name"
+            />
 
-          <!-- Sign in button -->
-          <button class="btn btn-info btn-block" type="submit">Sign in</button>
-        </form>
-        <!-- Default form subscription -->
+            <!-- Email -->
+            <input
+              type="email"
+              id="defaultSubscriptionFormEmail"
+              class="form-control mb-4"
+              placeholder="E-mail"
+            />
+
+            <!-- Sign in button -->
+            <button class="btn btn-info btn-block" type="submit">
+              Sign in
+            </button>
+          </form>
+          <!-- Default form subscription -->
+        </div>
       </div>
     </div>
   </div>
-  <div class="d-flex row">
-    <div class="h-100 d-flex justify-content-between align-items-center">
-      <h3 class="badge bg-primary">Placeholder/Image</h3>
-      <h3 class="badge bg-primary">MAP</h3>
-    </div>
-  </div>
-  <div class="d-flex row"></div>
-</div>
+{% comment %} </div> {% endcomment %}
+
 {% endblock content %}
