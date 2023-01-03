@@ -23,6 +23,7 @@ from customer.views import Index, HomeMenu, BreakfastMenu, LunchMenu, DinnerMenu
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('allauth.urls')),
+    path('restaurant/', include('restaurant.urls')),
     path('', Index.as_view(), name='index'),
     path('menu/', HomeMenu.as_view(), name='home_menu'),
     path('menu/breakfast/', BreakfastMenu.as_view(), name='breakfast_menu'),

@@ -1,0 +1,76 @@
+{% extends 'restaurant/base.html' %} {% block content %}
+<div class="container">
+  {% comment %} title {% endcomment %}
+  <div class="row justify-content-center mt-3">
+    <div class="col-md-5">
+      <h1 class="display-1">DASHBOARD</h1>
+    </div>
+  </div>
+
+  {% comment %} statistics {% endcomment %}
+  <div class="row justify-content-between mt-3">
+    <div class="col-md-4 col-sm-12">
+      <div class="card text-center">
+        <div class="card-header">Total Orders</div>
+        <div class="card-body">
+          <h5 class="card-title">{{ total_orders }}</h5>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 col-sm-12">
+      <div class="card text-center">
+        <div class="card-header">Total Revenue</div>
+        <div class="card-body">
+          <h5 class="card-title">
+            <i class="fas fa-dollar-sign"></i>{{ total_revenue }}
+          </h5>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 col-sm-12">
+      <div class="card text-center">
+        <div class="card-header">Total Revenue</div>
+        <div class="card-body">
+          <h5 class="card-title">{{ total_revenue }}</h5>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {% comment %} Order Table {% endcomment %}
+  <div class="row justify-content-center">
+    <div class="col-md-12">
+      <div class="table-responsive mt-3">
+        <table class="table table-hover border-dark">
+          <thead>
+            <tr>
+              <th scope="col">Order ID</th>
+              <th scope="col">Price</th>
+              <th scope="col">Name</th>
+              <th scope="col">Email</th>
+              <th scope="col">Street</th>
+              <th scope="col">City</th>
+              <th scope="col">State</th>
+              <th scope="col">Paid?</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for order in orders %}
+                <tr>
+                    <th scope="row">{{ order.pk }}</th>
+                    <td>{{ order.price }}</td>
+                    <td>{{ order.name }}</td>
+                    <td>{{ order.email }}</td>
+                    <td>{{ order.street }}</td>
+                    <td>{{ order.city }}</td>
+                    <td>{{ order.state }}</td>
+                    <td>{{ order.paid }}</td>
+                </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock content %}
