@@ -104,7 +104,9 @@
                     body: JSON.stringify({'isPaid': true}),
 
                   };
-                fetch(url, options).then(response => console.log(response))
+                fetch(url, options).then(response => {
+                    window.location.href = '/payment-confirmation/'
+                })
                 //.then(json => console.log(json))
                 // When ready to go live, remove the alert and show a success message within this page. For example:
                 // const element = document.getElementById('paypal-button-container');
