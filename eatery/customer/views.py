@@ -93,6 +93,13 @@ class Order(View):
         items = request.POST.getlist('items[]')
         print("items", items)
 
+        name = request.POST.get('name')
+        email = request.POST.get('email')
+        street = request.POST.get('street')
+        city = request.POST.get('city')
+        state = request.POST.get('state')
+        zipcode = request.POST.get('zipcode')
+
         # iterate through items and get the menu item and price from db
         for item in items:
             menu_item = MenuItem.objects.get(pk=int(item)) 
@@ -108,7 +115,15 @@ class Order(View):
         
 
         # create the order
-        order = OrderModel.objects.create(price=price)
+        order = OrderModel.objects.create(
+            price=price,
+            name=name,
+            email=email,
+            street=street,
+            city=city,
+            state=state,
+            zipcode=zipcode,
+            )
         order.items.add(*item_ids)
         context = {
             'items': order_items['items'],
