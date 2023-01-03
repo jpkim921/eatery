@@ -14,7 +14,6 @@
       {% for item in items %}
       <p>{{ item.name }} <span class="pl-3">{{ item.price }}</span></p>
       {% endfor %}
-
       <p class="fw-bold pt-4">Total: {{ price }}</p>
     </div>
   </div>
@@ -56,11 +55,8 @@
         }
 
         const csrftoken = getCookie('csrftoken');
-        console.log("FIRST", csrftoken);
-        {% comment %} console.log("{% csrf_token %}"); {% endcomment %}
 
-        paypal
-          .Buttons({
+        paypal.Buttons({
             // Sets up the transaction when a payment button is clicked
             createOrder: (data, actions) => {
               return actions.order.create({
@@ -84,13 +80,12 @@
                   orderData,
                   JSON.stringify(orderData, null, 2)
                 );
-                const transaction =
-                  orderData.purchase_units[0].payments.captures[0];
+
+                const transaction = orderData.purchase_units[0].payments.captures[0];
 
                 // alert(
                 //   `Transaction ${transaction.status}: ${transaction.id}\n\nSee console for all available details`
                 // );
-
 
                 let url = "{% url 'order-confirmation' pk %}"
                 const options = {
@@ -101,7 +96,7 @@
                         'X-CSRFToken': csrftoken
                     },
                     mode: 'cors',
-                    body: JSON.stringify({'isPaid': true}),
+                    body: JSON.stringify({'paid': true}),
 
                   };
                 fetch(url, options).then(response => {

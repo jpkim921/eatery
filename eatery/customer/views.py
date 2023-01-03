@@ -164,7 +164,7 @@ class OrderConfirmation(View):
     def post(self, request, pk, *args, **kwargs):
         data = json.loads(request.body)
         
-        if data['isPaid']:
+        if data['paid']:
             order = OrderModel.objects.get(pk=pk)
             order.paid = True
             order.save()

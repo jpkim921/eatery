@@ -9,7 +9,7 @@ class MenuItem(models.Model):
     price = models.DecimalField(max_digits=5, decimal_places=2)
     category = models.ManyToManyField('Category', related_name='item') # apetizer, entree, dessert, drink
     image = models.ImageField(upload_to='menu_images')
-    meal_time = models.ManyToManyField('MealTime', related_name='item') # apetizer, entree, dessert, drink
+    meal_time = models.ManyToManyField('MealTime', related_name='item') # breakfast, lunch, dinner
     # pub_date = models.DateField(auto_now_add=True)
     # allergens = 
 
