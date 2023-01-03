@@ -1,24 +1,96 @@
-{% extends 'customer/base.html' %}
-
-{% block content %}
+{% extends 'customer/base.html' %} {% block content %}
 <div class="container mb-5">
-    <div class="row justify-content-center mt-1">
-        <div class="col-md-5 col-sm-12 p-4 text-center">
-            <h1>Order Submitted!</h1>
-            <p>You should receive a confirmation email soon.</p>
-            <a href="{% url 'index' %}">Go to the homepage</a>
-        </div>
+  <div class="row justify-content-center mt-1">
+    <div class="col-md-5 col-sm-12 p-4 text-center">
+      <h1>Order Submitted!</h1>
+      <p>You should receive a confirmation email soon.</p>
+      <a href="{% url 'index' %}">Go to the homepage</a>
     </div>
+  </div>
 
-    <div class="row justify-content-center mt-5">
-        <div class="col-md-5 col-sm-12 text-center">
-            <h3 class="pb-3">Order Summary:</h3>
-            {% for item in items %}
-                <p>{{ item.name }} <span class="pl-3">{{ item.price }}</span></p>
-            {% endfor %}
+  <div class="row justify-content-center mt-5">
+    <div class="col-md-5 col-sm-12 text-center">
+      <h3 class="pb-3">Order Summary:</h3>
+      {% for item in items %}
+      <p>{{ item.name }} <span class="pl-3">{{ item.price }}</span></p>
+      {% endfor %}
 
-            <p class="font-weight-bold pt-4">Total: {{ price }}</p>
-        </div>
+      <p class="fw-bold pt-4">Total: {{ price }}</p>
     </div>
+  </div>
+
+  <div class="row justify-content-center mt-5">
+    <div class="col-md-6 text-center">
+      <h3>Pay Now</h3>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-md-6 text-center">
+      <!-- Replace "test" with your own sandbox Business account app client ID -->
+
+      <script src="https://www.paypal.com/sdk/js?client-id=AWXE5Ow1LiWKO63gTremkDJTHEQSSyWrFisdXqpT_-akIn0wwj7zat9I3qPHo1qBe_thzWDuGaxI4Xeg&currency=USD"></script>
+
+      <!-- Set up a container element for the button -->
+      <div id="paypal-button-container"></div>
+
+      <script>
+        paypal
+          .Buttons({
+            // Sets up the transaction when a payment button is clicked
+            createOrder: (data, actions) => {
+              return actions.order.create({
+                purchase_units: [
+                  {
+                    amount: {
+                      value: {{ price }}, // Can also reference a variable or function
+                    },
+                  },
+                ],
+              });
+            },
+
+            // Finalize the transaction after payer approval
+            onApprove: (data, actions) => {
+              return actions.order.capture().then(function (orderData) {
+                // Successful capture! For dev/demo purposes:
+
+                console.log(
+                  "Capture result",
+                  orderData,
+                  JSON.stringify(orderData, null, 2)
+                );
+                const transaction =
+                  orderData.purchase_units[0].payments.captures[0];
+
+                // alert(
+                //   `Transaction ${transaction.status}: ${transaction.id}\n\nSee console for all available details`
+                // );
+
+
+                let url = "{% url 'order-confirmation' pk %}"
+                const options = {
+                    method: 'POST',
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json',
+                        'X-CSRFToken': '{% csrf_token %}'
+                    },
+                    mode: 'cors',
+                    body: JSON.stringify({'isPaid': true}),
+
+                  };
+                fetch(url, options).then(response => console.log(response))
+                //.then(json => console.log(json))
+                // When ready to go live, remove the alert and show a success message within this page. For example:
+                // const element = document.getElementById('paypal-button-container');
+                // element.innerHTML = '<h3>Thank you for your payment!</h3>';
+                // Or go to another URL:  actions.redirect('thank_you.html');
+              });
+            },
+          })
+          .render("#paypal-button-container");
+      </script>
+    </div>
+  </div>
 </div>
 {% endblock content %}
