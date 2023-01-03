@@ -1,4 +1,5 @@
 from enum import Enum
+import json
 
 from django.shortcuts import render, redirect
 from django.views import View
@@ -161,8 +162,13 @@ class OrderConfirmation(View):
         return render(request, 'customer/order_confirmation.html', context=context)
 
     def post(self, request, pk, *args, **kwargs):
-        print(request.body)
-        return redirect('payment-confirmation')
+        data = json.loads(request.body)
+        
+        if data['isPaid']:
+            order = OrderModel.objects.get(pk=pk)
+            order.paid = True
+            order.save()
+        return redirect('payment_confirmation')
 
 
 class OrderPayConfirmation(View):
