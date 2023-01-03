@@ -2,7 +2,9 @@ from enum import Enum
 
 from django.shortcuts import render
 from django.views import View
+from django.core.mail import send_mail
 from .models import MenuItem, Category, OrderModel
+
 
 class MealType(Enum):
     BREAKFAST = 'breakfast'
@@ -125,10 +127,23 @@ class Order(View):
             zipcode=zipcode,
             )
         order.items.add(*item_ids)
+
+        # order confirmation email
+        email_params = {
+            "subject": 'Thank you!',
+            "message": ('Thank you for your order! Your food will be delivered soon!\n'f'Your total: {price}'),
+            "from_email": 'from_example@example.com',
+            "recipient_list": [email],
+            "fail_silently": False
+        }
+
+        send_mail(**email_params)
+
         context = {
             'items': order_items['items'],
             'price': price
         }
+        
         return render(request, 'customer/order_confirmation.html', context=context)
         # return render(request, 'customer/order_confirmation.html', context={})
         
