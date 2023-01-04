@@ -19,7 +19,7 @@ class Dashboard(LoginRequiredMixin, UserPassesTestMixin, View):
 
         # get all orders for today
         today = datetime.today()
-        orders = OrderModel.objects.filter(created_on__year=today.year, created_on__month=today.month, created_on__day=today.day-1)
+        orders = OrderModel.objects.filter(created_on__year=today.year, created_on__month=today.month, created_on__day=today.day)
         paginator = Paginator(orders, per_page=paginate_by)
         page_number = request.GET.get('page')
         page_object = paginator.get_page(page_number)
