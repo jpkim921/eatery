@@ -38,20 +38,26 @@
       </table>
     </div>
     <div class="col-md-6 col-sm-12 mt-3">
-      <div class="card">
-        <div
-          class="card-body w-100 d-flex flex-column justify-content-center align-items-start"
-        >
-          <p>{{order.name}}</p>
-          <p>{{order.email}}</p>
-          <p>{{order.street}}</p>
-          <div class="d-flex justify-content-between align-items-center">
-            <p>{{order.city}},</p>
-            <p class="ms-1">{{order.state}}</p>
-            <p class="ms-1">{{order.zipcode}}</p>
-          </div>
+        <div class="container">
+            <div class="row">
+                <div class="col">{{order.name}}</div>
+                <div class="col"><i class="far fa-envelope"></i> {{order.email}}</div>
+            </div>
+            {% comment %} <div class="row">
+                <div class="col">{{order.email}}</div>
+            </div> {% endcomment %}
+            <div class="row">
+                <div class="col">{{order.street}}</div>
+            </div>
+            <div class="row">
+                <div class="col">{{order.city}}, {{order.state}}  {{order.zipcode}}</div>
+            </div>
+            <div class="row mt-5">
+                <div class="col">
+                    <a class="btn btn-danger" href="">Delete Order</a>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
   </div>
 </div>
