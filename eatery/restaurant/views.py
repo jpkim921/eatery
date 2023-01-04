@@ -2,6 +2,8 @@ from django.shortcuts import render
 from django.views import View
 from django.utils.timezone import datetime
 from django.contrib.auth.mixins import UserPassesTestMixin, LoginRequiredMixin
+from django.core.paginator import Paginator
+
 
 from customer.models import OrderModel
 
@@ -9,11 +11,19 @@ from customer.models import OrderModel
 # Create your views here.
 
 class Dashboard(LoginRequiredMixin, UserPassesTestMixin, View):
+
+    
     def get(self, request, *args, **kwargs):
+
+        paginate_by = 9
+
         # get all orders for today
         today = datetime.today()
-        orders = OrderModel.objects.filter(created_on__year=today.year, created_on__month=today.month, created_on__day=today.day)
-        
+        orders = OrderModel.objects.filter(created_on__year=today.year, created_on__month=today.month, created_on__day=today.day-1)
+        paginator = Paginator(orders, per_page=paginate_by)
+        page_number = request.GET.get('page')
+        page_object = paginator.get_page(page_number)
+
         # loop over today's orders and get total revenue
         revenue = 0
         for order in orders:
@@ -21,10 +31,13 @@ class Dashboard(LoginRequiredMixin, UserPassesTestMixin, View):
     
         # get total # order and revenue
         context = {
-            'orders': orders,
+            'page_object': page_object,
             'total_revenue': revenue,
-            'total_orders': len(orders)
+            'total_orders': len(orders),
         }
+
+        print(context)
+
 
         return render(request, 'restaurant/dashboard.html', context=context)
 
