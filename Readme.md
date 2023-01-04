@@ -46,3 +46,6 @@
  - [x] build out about us apge
  - [x] order page saves order to db
  - [ ] add timer to only load lunch or dinner items on the order page
+ - [X] add dashboard for restaurant
+ - [ ] add search field for dashboard
+ - [ ] add edit, delete buttons for orders in dashboard
