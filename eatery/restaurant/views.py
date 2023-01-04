@@ -48,3 +48,24 @@ class Dashboard(LoginRequiredMixin, UserPassesTestMixin, View):
         whether or not the user is allowed in the dashboard.
         """
         return self.request.user.groups.filter(name='Staff').exists()
+
+
+
+class OrderDetails(LoginRequiredMixin, UserPassesTestMixin, View):
+
+    def get(self, request, pk, *args, **kwargs):
+        order = OrderModel.objects.get(pk=pk)
+        items = order.items.all()
+        print(items)
+        context = {
+            'order': order,
+            'items': items,
+        }
+        return render(request, 'restaurant/order-details.html', context=context)
+    
+    def test_func(self) -> bool:
+        """
+        This functions is used by the UserPassesTestMixin and checks
+        whether or not the user is allowed in the dashboard.
+        """
+        return self.request.user.groups.filter(name='Staff').exists()
