@@ -3,9 +3,6 @@
 
 
 
-## Notes:
- - admin/q
- - consumer/garmin550
 
 
 ## Photo Credits:
