@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views import View
 from django.utils.timezone import datetime
 from django.contrib.auth.mixins import UserPassesTestMixin, LoginRequiredMixin
@@ -62,6 +62,11 @@ class OrderDetails(LoginRequiredMixin, UserPassesTestMixin, View):
             'items': items,
         }
         return render(request, 'restaurant/order-details.html', context=context)
+
+    def post(self, request, pk, *args, **kwargs):
+        order = OrderModel.objects.get(pk=pk)
+        order.delete()
+        return redirect('dashboard')
     
     def test_func(self) -> bool:
         """

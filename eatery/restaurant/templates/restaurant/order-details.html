@@ -54,7 +54,12 @@
             </div>
             <div class="row mt-5">
                 <div class="col">
-                    <a class="btn btn-danger" href="">Delete Order</a>
+                    <form method="POST" action="{% url 'order-details' order.pk %}">   
+                        {% csrf_token %}                   
+                        <!-- Delete button -->
+                        <input type="text" name="item" value={{order.pk}} hidden readonly>
+                        <button type="submit" class="btn btn-danger btn-block">Delete Order</button>
+                      </form>
                 </div>
             </div>
         </div>
