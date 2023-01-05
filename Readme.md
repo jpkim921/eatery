@@ -67,3 +67,5 @@ python manage.py runserver
     - [] need to redo address area
  - [ ] need to redo the ordering process
     - [ ] order should be deleted by not paid
+
+ - [ ] create a receipt system using NFTs. try a different chain?
