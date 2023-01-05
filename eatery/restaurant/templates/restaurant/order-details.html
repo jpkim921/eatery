@@ -1,0 +1,73 @@
+{% extends 'restaurant/base.html' %} {% block content %}
+
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-6 col-sm-12 text-center mt-3">
+      <h1>Order Id: {{ order.pk }}</h1>
+    </div>
+  </div>
+  <div class="row justify-content-start">
+    <div class="col-md-6 col-sm-12 text-center mt-3">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">name</th>
+            <th scope="col">price</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for item in items %}
+          <tr>
+            <th style="padding: 7px" scope="row">{{forloop.counter}}</th>
+            <td style="padding: 7px">{{item.name}}</td>
+            <td style="padding: 7px">
+              <i class="fas fa-dollar-sign"></i>{{item.price}}
+            </td>
+          </tr>
+          {% endfor %}
+          <tr>
+            <td></td>
+            <td class="fw-bold">Total:</td>
+            <td>
+              <i class="fas fa-dollar-sign"></i>{% if order.price %}
+              {{order.price }} {% else %} "--" {% endif %}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-md-6 col-sm-12 mt-3">
+        <div class="container">
+            <div class="row">
+                <div class="col">{{order.name}}</div>
+                <div class="col"><i class="far fa-envelope"></i> {{order.email}}</div>
+            </div>
+            {% comment %} <div class="row">
+                <div class="col">{{order.email}}</div>
+            </div> {% endcomment %}
+            <div class="row">
+                <div class="col">{{order.street}}</div>
+            </div>
+            <div class="row">
+                <div class="col">{{order.city}}, {{order.state}}  {{order.zipcode}}</div>
+            </div>
+            <div class="row mt-5">
+                <div class="col">
+                    <form method="POST" action="{% url 'order-details' order.pk %}">   
+                        {% csrf_token %}                   
+                        <!-- Delete button -->
+                        <input type="text" name="item" value={{order.pk}} hidden readonly>
+                        <button type="submit" class="btn btn-danger btn-block">Delete Order</button>
+                      </form>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+</div>
+
+{% comment %} style="padding: 5px;" {% endcomment %} {% comment %} {% for item
+in order.items.all() %}
+<p>item.name</p>
+{% endfor %} {% endcomment %} {% endblock content %}

@@ -3,8 +3,6 @@
 
 
 
-## Notes:
- - admin/q
 
 
 ## Photo Credits:
@@ -48,3 +46,11 @@
  - [x] build out about us apge
  - [x] order page saves order to db
  - [ ] add timer to only load lunch or dinner items on the order page
+ - [X] add dashboard for restaurant
+ - [ ] add date field for dashboard to filter specific dates
+ - [ ] add search field for dashboard
+ - [x] add delete buttons for orders in dashboard
+ - [-] create order details page
+    - [] need to redo address area
+ - [ ] need to redo the ordering process
+    - [ ] order should be deleted by not paid
