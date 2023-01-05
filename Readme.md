@@ -1,7 +1,20 @@
+# Eatery
+
+A general restaurant website that uses the django framework. This django project to composed to two apps - the restaurant and customer apps. The restaurant app is for the staff to use and the customer to the consumer facing part.
+It has all the basic pages such as the landing page, menu, ordering, and about. 
 
 
+# Setup
+Follow the commands below to setup and start the server.
 
-
+```
+python3 -m venv venv
+pip install -r requirements.txt
+cd eatery
+python manage.py makemigration
+python manage.py migrate
+python manage.py runserver
+```
 
 
 
