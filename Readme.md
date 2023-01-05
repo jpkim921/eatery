@@ -4,6 +4,13 @@ A general restaurant website that uses the django framework. This django project
 It has all the basic pages such as the landing page, menu, ordering, and about. 
 
 
+# Screenshots of website
+![Screen Shot 2023-01-05 at 5 03 17 PM](https://user-images.githubusercontent.com/24558257/210888753-0845088f-46a9-452e-a245-d3c348885614.png)
+![Screen Shot 2023-01-05 at 5 03 28 PM](https://user-images.githubusercontent.com/24558257/210888766-d2403da7-8726-4a24-bb82-f7139456e8fe.png)
+![Screen Shot 2023-01-05 at 4 58 53 PM](https://user-images.githubusercontent.com/24558257/210888847-0e66e645-f1ed-408e-906c-db2c412826b2.png)
+![Screen Shot 2023-01-05 at 4 58 18 PM](https://user-images.githubusercontent.com/24558257/210888821-261ee955-6a65-4951-9316-ac965a6b8a12.png)
+
+
 # Setup
 Follow the commands below to setup and start the server.
 
